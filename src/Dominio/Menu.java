@@ -1,15 +1,15 @@
 package Dominio;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
-import javax.swing.JTextField;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class Menu extends JFrame {
 
@@ -47,12 +47,9 @@ public class Menu extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btn1 = new JButton("Ejercicio 1");
-		btn1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				System.out.println("Hola");
-			}
-		});
+		
+		btn1.addActionListener(new Click1());
+		
 		btn1.setBounds(119, 57, 227, 23);
 		contentPane.add(btn1);
 		
@@ -60,8 +57,39 @@ public class Menu extends JFrame {
 		btn2.setBounds(119, 110, 227, 23);
 		contentPane.add(btn2);
 		
+		btn2.addActionListener(new Click2());
+		
 		JButton btn3 = new JButton("Ejercicio 3 ");
 		btn3.setBounds(119, 159, 227, 23);
 		contentPane.add(btn3);
+	}
+	public void CambiarVisibilidad1(boolean estado) {
+		
+		setVisible(true);
+	}
+	
+	class Click1 implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// aca tengo que hacer que habra ventan1 
+			Ventana1 nueva = new Ventana1();
+			nueva.CambiarVisibilidad(true);
+			
+			
+		}
+		
+	}
+	
+	class Click2 implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			Ventana2 nuevo = new Ventana2();
+			nuevo.CambiarVisibilidad2(true);
+			
+		}
+		
+		
 	}
 }

@@ -1,7 +1,6 @@
 package Dominio;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -48,7 +47,7 @@ public class Ventana1 extends JFrame {
 	 */
 	public Ventana1() {
 		setTitle("CONTACTOS");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -142,10 +141,14 @@ public class Ventana1 extends JFrame {
 
 class eventoBoton implements ActionListener{
 
+	// declaro auxiliares
+	
 	private JTextField Nombre;
 	private JTextField Apellido;
 	private JTextField Tel;
 	private JTextField Fnac;
+	
+	// asigno lo que viene de la ventan en las auxiliares
 	
 	public eventoBoton(JTextField nombre,JTextField apellido, JTextField telefono, JTextField fnac) {
 		Nombre=nombre;
@@ -153,6 +156,8 @@ class eventoBoton implements ActionListener{
 		Tel=telefono;
 		Fnac=fnac;
 	}
+	
+	// desarrollo lo que tiene que hacer segun el campo. 
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {

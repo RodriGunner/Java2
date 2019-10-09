@@ -3,8 +3,8 @@ package Dominio;
 public class Main {
 
 	public static void main(String[] args) {
-		Ventana1 nueva = new Ventana1();
-		nueva.CambiarVisibilidad(true);
+		Menu nueva = new Menu();
+		nueva.CambiarVisibilidad1(true);
 
 	}
 
