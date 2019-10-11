@@ -1,6 +1,6 @@
 package Dominio;
 
-import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -10,9 +10,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JSpinner;
-import javax.swing.JEditorPane;
-import javax.swing.JFormattedTextField;
 
 public class Ventana2 extends JFrame {
 
@@ -67,7 +64,7 @@ public class Ventana2 extends JFrame {
 
 		bntCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int a,b,c ;
+				int a,b,c,i ;
 				int d;
 				a= Integer.parseInt(TF1.getText());
 				b=Integer.parseInt(TF2.getText());
@@ -77,17 +74,17 @@ public class Ventana2 extends JFrame {
 				lblVacia1.setText(" "+d);
 				if(Combo.getSelectedItem()=="Aprobado") {
 					if (a >=6 &&  b >=6 && c >=6 && a < 8 && b <8 && c <8)    
-							{ lblVacia2.setText("REGULAR"); }
-					else {
-						if (a>=8 && b>=8 && c>=8) {
-							lblVacia2.setText("PROMOCIONADO");
-						}
-						else {
-							 lblVacia2.setText("LIBRE");
-						}
+							{ lblVacia2.setText("REGULAR "); }
+					
+					i=a+b+c;
+					if (i>=21 ) {lblVacia2.setText("REGULAR ");}
+					if (a<6||b<6||c<6) {lblVacia2.setText("LIBRE");}
+					if (a>=8 && b>=8 && c>=8) {
+						lblVacia2.setText("PROMOCIONADO");
 					}
+					
 				}
-				else { lblVacia2.setText("LIBRE"); }
+				else { lblVacia2.setText("LIBRE"); } // del 1° if dende pregunto x aprobado
 			}
 		});
 		
@@ -110,6 +107,12 @@ public class Ventana2 extends JFrame {
 		contentPane.add(bntNuevo);
 		
 		JButton btnSalir = new JButton("SALIR");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				  System.exit(0);
+				  // tengo que buscar uno que cierre el formulario "Ventana2"
+			}
+		});
 		btnSalir.setBounds(315, 182, 89, 23);
 		contentPane.add(btnSalir);
 		

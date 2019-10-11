@@ -60,6 +60,12 @@ public class Menu extends JFrame {
 		btn2.addActionListener(new Click2());
 		
 		JButton btn3 = new JButton("Ejercicio 3 ");
+		btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Ventana3 nuevo = new Ventana3();
+				nuevo.CambiarVisibilidad12(true);
+			}
+		});
 		btn3.setBounds(119, 159, 227, 23);
 		contentPane.add(btn3);
 	}
@@ -90,6 +96,17 @@ public class Menu extends JFrame {
 			
 		}
 		
+		
+	}
+	
+	class Click3 implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			Ventana3 nuevo = new Ventana3();
+			nuevo.CambiarVisibilidad12(true);
+			
+		}
 		
 	}
 }
